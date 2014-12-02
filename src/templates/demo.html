@@ -1,0 +1,44 @@
+<! --
+  Based on demo video: https://www.youtube.com/watch?v=8Or8KIhpsqg
+  This shows you how to power 2 Pie Charts using the Google Analytics
+  superProxy. Each chart uses, as a data source, a public superProxy URL
+  with the format set to Data Table Response.
+-->
+<html>
+<head>
+  <title>Pie!</title>
+
+  <!--Load the AJAX API-->
+  <script type="text/javascript"
+    src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1"}]}'>
+  </script>
+
+  <!-- Visualization -->
+  <!-- https://developers.google.com/chart/interactive/docs/reference#google.visualization.drawchart -->
+  <script type="text/javascript">
+    google.setOnLoadCallback(drawVisualization);
+
+    function drawVisualization() {
+
+      var browserWrapper = new google.visualization.ChartWrapper({
+          // Example Browser Share Query
+         "containerId": "browser",
+                          // Example URL: http://your-application-id.appspot.com/query?id=QUERY_ID&format=data-table-response
+         "dataSourceUrl": "https://ga-proxy-silverhand.appspot.com/query?id=ahVzfmdhLXByb3h5LXNpbHZlcmhhbmRyFQsSCEFwaVF1ZXJ5GICAgIC8oYIKDA&format=data-table-response",
+         "refreshInterval": 3600,
+         "chartType": "LineChart",
+         "options": {
+            "title": "123doc - Clicked item similar 1 week ago",
+            "showRowNumber" : true
+         }
+       });
+
+      browserWrapper.draw();
+    }
+  </script>
+</head>
+<body>
+  <h1>Demo VG - Analytic!</h1>
+  <div id="browser" style="margin:auto;width:800px;"></div>
+</body>
+</html>
