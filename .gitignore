@@ -1,0 +1,34 @@
+samples/
+src/runtime/
+.idea
+.venv
+*.sublime-*
+
+# compiled python files
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+.idea/
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
