@@ -125,6 +125,7 @@ LINKS = {
     'public_default': r'/.*',
     'public_index': '/',
     'public_query': '/query',
+    'public_demo': '/demo',
 
     # Static directories
     'css': '/static/gasuperproxy/css/',

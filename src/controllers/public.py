@@ -70,6 +70,11 @@ class PublicQueryResponseHandler(base.BaseHandler):
     transform.Render(self, content, status)
 
 
+class PublicDemoQueryResponseHandler(base.BaseHandler):
+    def get(self):
+        self.RenderHtmlTemplate('demo.html')
+
+
 class NotAuthorizedHandler(base.BaseHandler):
   """Handles unauthorized public requests to owner/admin pages."""
 
@@ -78,6 +83,9 @@ class NotAuthorizedHandler(base.BaseHandler):
 
 
 app = webapp2.WSGIApplication(
-    [(co.LINKS['public_query'], PublicQueryResponseHandler),
-     (co.LINKS['public_default'], NotAuthorizedHandler)],
+    [
+        (co.LINKS['public_query'], PublicQueryResponseHandler),
+        (co.LINKS['public_demo'], PublicDemoQueryResponseHandler),
+        (co.LINKS['public_default'], NotAuthorizedHandler),
+    ],
     debug=True)
